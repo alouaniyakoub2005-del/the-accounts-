@@ -1,240 +1,0 @@
-<!doctype html>
-<html lang="ar" dir="rtl">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>UNIVERSITY – بوابة</title>
-  <style>
-/* ====== THEME & VARIABLES ====== */
-:root{
-  --bg-dark: #0a0f1a;
-  --glass: rgba(255,255,255,0.08);
-  --glass-edge: rgba(255,255,255,0.35);
-  --stroke: rgba(255,255,255,0.6);
-  --text: #eef5ff;
-
-  --cyan: #42d5ff;
-  --red: #ff4d6d;
-  --orange: #ffb54a;
-
-  /* خلفيات (صور عالية الجودة من Unsplash) */
-  --bg-top: url('/عالم التعليم الجامعي.png');
-  --bg-bottom: url('/442e0780568beb77901e1ccd9bcf244a.jpg');
-}
-
-/* RESET */
-*{box-sizing:border-box;margin:0;padding:0}
-html,body{height:100%}
-body{
-  font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Noto Sans Arabic", Arial, sans-serif;
-  background: #0a0f1a;
-  color: var(--text);
-  overflow-x:hidden;
-}
-
-/* BACKGROUND */
-.bg-layer{position:fixed;inset:0;z-index:-2;}
-.bg-top,.bg-bottom{
-  position:absolute;left:0;right:0;height:50vh;opacity:.25;
-  background-size:cover;background-position:center;
-}
-.bg-top{top:0;background-image:var(--bg-top);}
-.bg-bottom{bottom:0;background-image:var(--bg-bottom);}
-
-/* HERO */
-.hero{text-align:center;padding:60px 20px 30px;}
-.glass-title{
-  font-size:clamp(40px,8vw,100px);
-  letter-spacing:.12em;text-transform:uppercase;
-  color:transparent;-webkit-text-stroke:1.2px var(--stroke);
-  background:linear-gradient(180deg,#fff,#aaa);
-  -webkit-background-clip:text;background-clip:text;
-  filter:drop-shadow(0 0 16px rgba(66,213,255,.6));
-}
-.subtitle{opacity:.8;font-size:18px;margin-top:10px}
-
-/* CARDS */
-.cards{display:grid;gap:20px;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));margin:40px;}
-.card{
-  position:relative;border-radius:18px;overflow:hidden;
-  background:rgba(255,255,255,0.08);backdrop-filter:blur(12px);
-  border:1px solid rgba(255,255,255,0.15);
-  box-shadow:0 8px 20px rgba(0,0,0,.4);
-  cursor:pointer;transition:.35s;
-}
-.card::before{
-  content:"";position:absolute;inset:0;z-index:-1;
-  background-image:var(--card-image);background-size:cover;background-position:center;opacity:.3;
-}
-.card::after{
-  content:"";position:absolute;inset:-2px;border-radius:inherit;z-index:-2;
-  background:radial-gradient(circle at top, var(--glow) 0%, transparent 70%);
-  filter:blur(20px);opacity:.8;
-}
-.card:hover{transform:translateY(-8px) scale(1.03);}
-.card .content{padding:30px;text-align:center;min-height:160px;display:flex;flex-direction:column;justify-content:center}
-.card h3{
-  font-size:22px;color:transparent;-webkit-text-stroke:1px rgba(255,255,255,.7);
-  background:linear-gradient(180deg,#fff,#bbb);-webkit-background-clip:text;background-clip:text;
-  margin-bottom:10px;
-}
-.card p{opacity:.85;font-size:14px}
-
-/* PAGE STYLE (داخلية) */
-.page{display:none;text-align:center;padding:40px}
-.page.active{display:block}
-.page-title{
-  font-size:clamp(28px,7vw,60px);
-  color:transparent;-webkit-text-stroke:1px var(--stroke);
-  background:linear-gradient(180deg,#fff,#aaa);-webkit-background-clip:text;background-clip:text;
-  filter:drop-shadow(0 0 16px rgba(66,213,255,.6));
-  margin-bottom:20px;
-}
-.panel{
-  margin:20px auto;padding:20px;max-width:700px;border-radius:16px;
-  background:rgba(255,255,255,0.08);backdrop-filter:blur(12px);
-  border:1px solid rgba(255,255,255,.15);
-}
-.panel h4{margin-bottom:10px}
-.panel p{line-height:1.7}
-
-/* LINKS PAGE */
-.link-grid{display:grid;gap:20px;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));margin:20px auto;max-width:800px;}
-/* FOOTER */
-footer{text-align:center;padding:30px}
-.fb-icon{display:inline-block;width:40px;height:40px;border-radius:8px;background:rgba(255,255,255,0.1);backdrop-filter:blur(8px);line-height:40px}
-.fb-icon svg{width:22px;height:22px;fill:#fff}
-  </style>
-</head>
-<body>
-  <!-- BACKGROUND -->
-  <div class="bg-layer">
-    <div class="bg-top"></div>
-    <div class="bg-bottom"></div>
-  </div>
-
-  <!-- HERO -->
-  <header class="hero">
-    <h1 class="glass-title">UNIVERSITY</h1>
-    <p class="subtitle"></p> موقع الطلبة الجامعيين لقصر آت مليشت</p>
-  </header>
-
-  <!-- MAIN OPTIONS -->
-  <main>
-    <div class="cards">
-      <div class="card" style="--glow:var(--cyan);--card-image:url('/0fd6fa974c9a40fbcb9b0a6ed60bb781.jpg');" onclick="openPage('register')">
-<div class="content">
-          <h3>التسجيل الجامعي</h3>
-          <p>كل المعلومات التي تحتاجها لعملية التسجيل</p>
-        </div>
-      </div>
-      <div class="card" style="--glow:var(--red);--card-image:url('/e2ad42c2bc658413d64031c6e16ef28b.jpg');" onclick="openPage('scholarship')">
-        <div class="content">
-          <h3>المنحة الجامعية</h3>
-          <p>التفاصيل والشروط والوثائق</p>
-        </div>
-      </div>
-      <div class="card" style="--glow:var(--orange);--card-image:url('/53ef424cd7f5228e85d80b425936794d.jpg');" onclick="openPage('resources')">
-        <div class="content">
-          <h3>أهم المواقع للطلبة</h3>
-          <p>روابط مهمة ومفيدة</p>
-        </div>
-      </div>
-    </div>
-  </main>
-
-  <!-- PAGES -->
-  <section id="register" class="page">
-    <h2 class="page-title">التسجيل الجامعي</h2>
-    <div class="panel">
-      <h4>دليل سريع</h4>
-      <p><h1 class="glass-title">1</h1>
-       يجب على كل الطلبة إتباع الإجراءات التالية :
-     <div class="card" style="--glow:var(--orange);--card-image:url('/b919cda55c9e8b5e62d5f84fea885227.jpg');">
-       دليل الطالب: رحلتك إلى الجامعة في الجزائر
-تهانينا على نجاحك في شهادة البكالوريا! الآن تبدأ خطوتك الأولى نحو المستقبل الأكاديمي. هذه الصفحة ستكون دليلك الموجز والكامل لإجراءات التسجيل الجامعي في الجزائر، لضمان أن تكون تجربتك سلسة ومبسطة.
-أولا: التسجيلات الأولية عبر الإنترنت (التسجيلات عن بعد)
-تُجرى هذه المرحلة عادةً في شهر أوت  من كل عام عن طريق موقع بروقراس.وتُعتبر الأهم في عملية التسجيل. يقوم الطالب خلالها بملء بطاقة الرغبات إلكترونياً عبر البوابة الوطنية للتسجيلات الجامعية.
-* بطاقة الرغبات: ستقوم باختيار عدة فروع وتخصصات (عادة ما بين 6 إلى 10 خيارات) حسب معدلك وتوافق التخصص مع الشعبة التي درستها في البكالوريا. من المهم ترتيب هذه الرغبات بعناية من الأكثر تفضيلاً إلى الأقل، لأن التوجيه يتم بناءً على ترتيبك ونتائجك.
-* الطعون: بعد الإعلان عن نتائج التوجيه، تُفتح فترة قصيرة للطعون للطلاب الذين لم يحصلوا على أي من رغباتهم أو لديهم أسباب مقنعة لتغيير التخصص.
-ثانيا: تأكيد التسجيل النهائي
-بعد الإعلان عن نتائج التوجيه، يُطلب من كل طالب موجه إلى تخصص معين تأكيد تسجيله إلكترونياً خلال فترة محددة، غالباً في أواخر شهر يوليو أو بداية أغسطس. هذه الخطوة ضرورية لتثبيت قبولك في الجامعة.
-* تأكد من متابعة المواعيد الرسمية التي تُعلن عنها وزارة التعليم العالي والبحث العلمي بدقة.
-* جميع الإجراءات تتم إلكترونياً عبر موقع التسجيلات الجامعية، لذا احرص على الاحتفاظ بكلمة المرور الخاصة بك.
-* تذكر أن لكل مرحلة من مراحل التسجيل فترات زمنية محددة، وتفويت أي منها قد يؤدي إلى فقدان حقك في التسجيل لذلك العام.
-نتمنى لك التوفيق في رحلتك الأكاديمية!
-      </p>
-    </div>
-  </section>
-
-  <section id="scholarship" class="page">
-    <h2 class="page-title">المنحة الجامعية</h2>
-    <div class="panel">
-      <h4>التفاصيل</h4>
-      <p>
-        <div class="card" style="--glow:var(--orange);--card-image:url('/ad35eecabda690b151f46e6f9977c05e.jpg');">
-        
-        
-        خـــدمـــة الـــمـــنـــح
-المنحة عبارة عن إعانة مالية تقدمها الدولة للطلبة الـذين يتـابـعون بانتظام و كامل الوقت دراستهم الجامعية، قصد مساعدتهم لتغطية جزء من مصاريفهم الدراسية.
-
-يستفيد الطالب الجامعي من منحة شهرية تبلغ قيمتها 2000دج بعد قبول طلبه.
-
-شروط الاستفادة من المنحة
-دخل الأولياء:
-أن لا يتجاوز إجمالي دخل الوالدين الشهري 10 مرات الأجر الوطني الأدنى المضمون (SNMG) وهذا يشمل طيلة الطورين الأول والثاني.
-
-نتائج الطالب:
-
-تمدد الاستفادة من المنحة لفائدة كل طالب تكون نتائجه مرضية تسمح له بالانتقال للمستوى الأعلى، كما يمكن تمديد الاستفادة من المنحة في حالة تكرار السنة مرة واحدة خلال الطور الجامعي و توقف بعد أي رسوب آخر.
-
-تخصيص مالي آخر:
-المنحة مانعة لكل تخصيص مالي آخر مهما يكن نوعه، حيث لا يمكن للطالب ان يستفيد من أكثر من منحة أو أي تخصيصي مالي آخر.
-.          يمكنكم تقديم الطلب من موقع 👇
-<h1 class="glass-title">PROGRES</h1>
-</p>
-    </div>
-  </section>
-
-  <section id="resources" class="page">
-    <h2 class="page-title">أهم المواقع</h2>
-    <div class="link-grid">
-      <a class="card" style="--glow:var(--cyan);--card-image:url('https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=800&q=80');" href="https://example.com/site1" target="_blank">
-        <div class="content">
-          <h3>منصة جامعية</h3>
-          <p>
-            
-          <h3>موقع وزارة التعليم العالي والبحث العلمي 👇</h3>
-             https://www.mesrs.dz/</p>
-        </div>
-      </a>
-      <a class="card" style="--glow:var(--cyan);--card-image:url('/32ea6c8afe670b550c0af13b9546eb9b.jpg');" href="https://example.com/site2" target="_blank">
-        <div class="content">
-          <h3>الموقع الرسمي PROGRES 👇</h3>
-         <p>https://progres.mesrs.dz/webetu/login.xhtml</p>
-         <h3>موقع التسجيل الرسمي ✍️↓</h3>
-          <p>https://progres.mesrs.dz/epaiement/login.xhtml?fbclid=IwQ0xDSwMQbjxleHRuA2FlbQIxMAABHnJNMXDdwchioluymxPpK1TY-ZmeGd302za_F15b3f2g4uj7vv2Rf0DJZAsN_aem_LLPbT2jzE3ib1UvzoTg84Q
-          </p>
-        
-         
-        </div>
-      </a>
-    </div>
-  </section>
-
-  <!-- FOOTER -->
-  <footer>
-    <a class="fb-icon" href="https://www.facebook.com/share/1JhBRwwxqw/" target="_blank" rel="noopener">
-      <svg viewBox="0 0 24 24"><path d="M22 12.06C22 6.5 17.52 2 12 2S2 6.5 2 12.06c0 4.99 3.66 9.13 8.44 9.94v-7.03H7.9v-2.9h2.54V9.41c0-2.5 1.49-3.89 3.77-3.89 1.09 0 2.23.2 2.23.2v2.45h-1.26c-1.24 0-1.63.77-1.63 1.56v1.87h2.78l-.44 2.9h-2.34V22c4.78-.81 8.44-4.95 8.44-9.94z"/></svg>
-    </a>
-  </footer>
-
-  <script>
-    function openPage(id){
-      document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
-      document.getElementById(id).classList.add('active');
-      window.scrollTo({top:0,behavior:'smooth'});
-    }
-  </script>
-</body>
-</html>
